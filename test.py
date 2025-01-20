@@ -12,7 +12,7 @@ print(openai.api_key)
 try:
     # Use the correct API method for GPT-4
     response = openai.ChatCompletion.create(
-        model="gpt-4p",  # Use "gpt-4" or "gpt-4-turbo"
+        model="gpt-4o",  # Use "gpt-4" or "gpt-4-turbo"
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": "Say hello!"}
