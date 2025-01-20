@@ -9,7 +9,7 @@ print(openai.api_key)
 
 try:
     response = openai.Completion.create(
-        engine="text-davinci-003",
+        engine="gpt-4o",
         prompt="Say hello!",
         max_tokens=5
     )
