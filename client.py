@@ -1,13 +1,13 @@
-from openai import OpenAI
+import openai
 import streamlit as st
 from dotenv import load_dotenv
 import os
-import openai
 
 load_dotenv()
 
 # Set your OpenAI API key
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai.api_key = os.getenv("OPENAI_API_KEY")
+print(openai.api_key)
 
 # GPT-4 function
 def answer_with_gpt4(query):
@@ -18,7 +18,7 @@ def answer_with_gpt4(query):
         """
 
         # Get response from OpenAI GPT-4
-        response = client.ChatCompletion.create(
+        response = openai.ChatCompletion.create(
             model="gpt-4o",
             messages=[
                 {"role": "system", "content": """
@@ -63,8 +63,8 @@ def answer_with_gpt4(query):
                 {"role": "user", "content": prompt}
             ]
         )
-        return response.choices[0].message.content
-    except openai.OpenAIError as e:
+        return response.choices[0].message['content']
+    except openai.error.OpenAIError as e:
         return f"Error: {str(e)}"
 
 # Streamlit app
