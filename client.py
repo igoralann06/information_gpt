@@ -7,6 +7,7 @@ load_dotenv()
 
 # Set your OpenAI API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
+print(openai.api_key)
 
 # GPT-4 function
 def answer_with_gpt4(query):
