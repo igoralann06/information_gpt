@@ -61,7 +61,8 @@ def answer_with_gpt4(query):
                     - Prioritize clarity over complexity to ensure your response is accessible to all users.
                 """},
                 {"role": "user", "content": prompt}
-            ]
+            ],
+            max_tokens=2000
         )
         return response.choices[0].message['content']
     except openai.error.OpenAIError as e:
